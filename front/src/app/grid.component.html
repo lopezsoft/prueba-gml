@@ -1,0 +1,31 @@
+
+  <exodo-grid #exodoGrid class="w-100"
+              [caption]="title"
+              [columns]="eColumns"
+              [showPagination]="true"
+              mode="remote"
+
+  >
+    <div class="d-flex justify-content-between w-100 mb-1" header>
+        <form [formGroup]="customForm" class="input-group w-100 me-2">
+          <input type="text" class="form-control"
+                 [placeholder]="queryService?.setting?.name"
+                 [value]="queryService?.setting?.value || ''"
+                 formControlName="value"
+                 [class.is-invalid]="isInvalid('value')"
+          >
+          <button class="btn btn-primary" type="button" (click)="onSave($event)">
+            Actualizar
+          </button>
+        </form>
+        <button class="btn btn-success me-2" type="button" (click)="sendReport()">
+          Enviar reporte
+        </button>
+        <button class="btn btn-success btn-sm" (click)="createData()">
+          <i class="fa fa-plus mr-1 fas-fa-22"></i>
+          Nuevo
+        </button>
+    </div>
+  </exodo-grid>
+
+  <block-ui></block-ui>
